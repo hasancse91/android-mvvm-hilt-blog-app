@@ -2,31 +2,22 @@ package com.hellohasan.mvvmhiltblog.blog_list.view_model
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import com.hellohasan.mvvmhiltblog.blog_list.model.BlogItemUiModel
 import com.hellohasan.mvvmhiltblog.blog_list.model.BlogListModel
-import com.hellohasan.mvvmhiltblog.blog_list.model.BlogListModelImpl
 import com.hellohasan.mvvmhiltblog.blog_list.model.ModelCallback
 import com.hellohasan.mvvmhiltblog.blog_list.model.data.BlogResponse
+import dagger.hilt.android.lifecycle.HiltViewModel
 import java.text.SimpleDateFormat
 import java.util.Locale
+import javax.inject.Inject
 
-class BlogListViewModel(private val model: BlogListModel) : ViewModel() {
+@HiltViewModel
+class BlogListViewModel @Inject constructor(private val model: BlogListModel) : ViewModel() {
 
     val showLoaderLiveData = MutableLiveData<Boolean>()
     val showErrorLiveData = MutableLiveData<String>()
     val blogListUiModelLiveData: MutableLiveData<List<BlogItemUiModel>> by lazy {
         MutableLiveData<List<BlogItemUiModel>>()
-    }
-
-    companion object {
-        @Suppress("UNCHECKED_CAST")
-        val Factory: ViewModelProvider.Factory = object : ViewModelProvider.Factory {
-            override fun <T : ViewModel> create(modelClass: Class<T>): T {
-                val model: BlogListModel = BlogListModelImpl()
-                return BlogListViewModel(model) as T
-            }
-        }
     }
 
     fun getBlogList() {

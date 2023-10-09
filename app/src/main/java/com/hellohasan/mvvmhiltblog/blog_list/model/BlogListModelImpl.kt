@@ -2,15 +2,16 @@ package com.hellohasan.mvvmhiltblog.blog_list.model
 
 import com.hellohasan.mvvmhiltblog.blog_list.model.data.BlogResponse
 import com.hellohasan.mvvmhiltblog.blog_list.model.remote.BlogApiInterface
-import com.hellohasan.mvvmhiltblog.network.RetrofitClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import retrofit2.Retrofit
 import retrofit2.create
+import javax.inject.Inject
 
-class BlogListModelImpl : BlogListModel {
+class BlogListModelImpl @Inject constructor(retrofit: Retrofit) : BlogListModel {
 
-    private val blogApiInterface = RetrofitClient.client.create<BlogApiInterface>()
+    private val blogApiInterface = retrofit.create<BlogApiInterface>()
 
     override fun getBlogList(callback: ModelCallback) {
 

@@ -8,11 +8,13 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.hellohasan.mvvmhiltblog.blog_list.view_model.BlogListViewModel
 import com.hellohasan.mvvmhiltblog.databinding.ActivityBlogListBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class BlogListActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityBlogListBinding
-    private val viewModel: BlogListViewModel by viewModels { BlogListViewModel.Factory }
+    private val viewModel: BlogListViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
