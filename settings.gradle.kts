@@ -13,6 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Android MVVM Blog App"
+rootProject.name = "MVVM-Hilt Blog App"
 include(":app")
  

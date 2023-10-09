@@ -1,7 +1,7 @@
-package com.hellohasan.mvvmblog.blog_list.model.data
+package com.hellohasan.mvvmhiltblog.blog_list.model.data
 
-import com.google.gson.annotations.SerializedName
 import androidx.annotation.Keep
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 @Keep

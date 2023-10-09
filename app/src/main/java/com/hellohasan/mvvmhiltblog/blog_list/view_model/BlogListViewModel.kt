@@ -1,13 +1,13 @@
-package com.hellohasan.mvvmblog.blog_list.view_model
+package com.hellohasan.mvvmhiltblog.blog_list.view_model
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.hellohasan.mvvmblog.blog_list.model.BlogItemUiModel
-import com.hellohasan.mvvmblog.blog_list.model.BlogListModel
-import com.hellohasan.mvvmblog.blog_list.model.BlogListModelImpl
-import com.hellohasan.mvvmblog.blog_list.model.ModelCallback
-import com.hellohasan.mvvmblog.blog_list.model.data.BlogResponse
+import com.hellohasan.mvvmhiltblog.blog_list.model.BlogItemUiModel
+import com.hellohasan.mvvmhiltblog.blog_list.model.BlogListModel
+import com.hellohasan.mvvmhiltblog.blog_list.model.BlogListModelImpl
+import com.hellohasan.mvvmhiltblog.blog_list.model.ModelCallback
+import com.hellohasan.mvvmhiltblog.blog_list.model.data.BlogResponse
 import java.text.SimpleDateFormat
 import java.util.Locale
 

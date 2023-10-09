@@ -1,11 +1,11 @@
-package com.hellohasan.mvvmblog.blog_details
+package com.hellohasan.mvvmhiltblog.blog_details
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Html
+import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
-import com.hellohasan.mvvmblog.blog_list.model.BlogItemUiModel
-import com.hellohasan.mvvmblog.databinding.ActivityBlogDetailsBinding
+import com.hellohasan.mvvmhiltblog.blog_list.model.BlogItemUiModel
+import com.hellohasan.mvvmhiltblog.databinding.ActivityBlogDetailsBinding
 
 class BlogDetailsActivity : AppCompatActivity() {
 

@@ -1,8 +1,8 @@
-package com.hellohasan.mvvmblog.blog_list.model
+package com.hellohasan.mvvmhiltblog.blog_list.model
 
-import com.hellohasan.mvvmblog.blog_list.model.data.BlogResponse
-import com.hellohasan.mvvmblog.blog_list.model.remote.BlogApiInterface
-import com.hellohasan.mvvmblog.network.RetrofitClient
+import com.hellohasan.mvvmhiltblog.blog_list.model.data.BlogResponse
+import com.hellohasan.mvvmhiltblog.blog_list.model.remote.BlogApiInterface
+import com.hellohasan.mvvmhiltblog.network.RetrofitClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

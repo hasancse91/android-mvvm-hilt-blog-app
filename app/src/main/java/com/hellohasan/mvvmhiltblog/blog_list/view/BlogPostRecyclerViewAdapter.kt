@@ -1,13 +1,13 @@
-package com.hellohasan.mvvmblog.blog_list.view
+package com.hellohasan.mvvmhiltblog.blog_list.view
 
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.hellohasan.mvvmblog.blog_details.BlogDetailsActivity
-import com.hellohasan.mvvmblog.blog_list.model.BlogItemUiModel
-import com.hellohasan.mvvmblog.databinding.ItemBlogPostBinding
+import com.hellohasan.mvvmhiltblog.blog_details.BlogDetailsActivity
+import com.hellohasan.mvvmhiltblog.blog_list.model.BlogItemUiModel
+import com.hellohasan.mvvmhiltblog.databinding.ItemBlogPostBinding
 
 class BlogPostRecyclerViewAdapter(private val blogList: List<BlogItemUiModel>) :
     RecyclerView.Adapter<BlogPostRecyclerViewAdapter.BlogPostViewHolder>() {

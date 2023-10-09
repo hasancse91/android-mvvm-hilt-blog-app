@@ -1,4 +1,4 @@
-package com.hellohasan.mvvmblog.blog_list.view
+package com.hellohasan.mvvmhiltblog.blog_list.view
 
 import android.os.Bundle
 import android.widget.Toast
@@ -6,8 +6,8 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.hellohasan.mvvmblog.blog_list.view_model.BlogListViewModel
-import com.hellohasan.mvvmblog.databinding.ActivityBlogListBinding
+import com.hellohasan.mvvmhiltblog.blog_list.view_model.BlogListViewModel
+import com.hellohasan.mvvmhiltblog.databinding.ActivityBlogListBinding
 
 class BlogListActivity : AppCompatActivity() {
 
