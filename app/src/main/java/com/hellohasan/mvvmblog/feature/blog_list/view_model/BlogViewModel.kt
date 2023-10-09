@@ -7,9 +7,9 @@ import com.hellohasan.mvvmblog.feature.blog_list.model.BlogModel
 import com.hellohasan.mvvmblog.feature.blog_list.model.BlogModelImpl
 import com.hellohasan.mvvmblog.feature.blog_list.model.BlogResponse
 import com.hellohasan.mvvmblog.feature.blog_list.model.ModelCallback
+import com.hellohasan.mvvmblog.network.RetrofitClient
 import java.text.SimpleDateFormat
 import java.util.Locale
-
 
 class BlogViewModel(private val blogModel : BlogModel) : ViewModel() {
 
@@ -18,7 +18,7 @@ class BlogViewModel(private val blogModel : BlogModel) : ViewModel() {
 
             override fun <T : ViewModel> create(modelClass: Class<T>): T {
 
-                val blogModel : BlogModel = BlogModelImpl()
+                val blogModel: BlogModel = BlogModelImpl(RetrofitClient.client)
 
                 return BlogViewModel(blogModel) as T
             }

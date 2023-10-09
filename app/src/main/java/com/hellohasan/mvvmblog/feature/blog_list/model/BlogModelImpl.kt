@@ -1,17 +1,15 @@
 package com.hellohasan.mvvmblog.feature.blog_list.model
 
-import com.hellohasan.mvvmblog.network.RetrofitClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import retrofit2.Retrofit
 import retrofit2.create
 
-class BlogModelImpl : BlogModel {
-
-    private val blogApiInterface = RetrofitClient.client.create<BlogApiInterface>()
+class BlogModelImpl(private val retrofit: Retrofit) : BlogModel {
 
     override fun fetchBlogList(callback: ModelCallback) {
-
+        val blogApiInterface = retrofit.create<BlogApiInterface>()
         val apiCall = blogApiInterface.getBlogList()
 
         apiCall.enqueue(object : Callback<List<BlogResponse>> {
