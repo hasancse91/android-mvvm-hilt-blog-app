@@ -9,12 +9,10 @@ import retrofit2.Retrofit
 import retrofit2.create
 import javax.inject.Inject
 
-class BlogListModelImpl @Inject constructor(retrofit: Retrofit) : BlogListModel {
-
-    private val blogApiInterface = retrofit.create<BlogApiInterface>()
+class BlogListModelImpl @Inject constructor(private val retrofit: Retrofit) : BlogListModel {
 
     override fun getBlogList(callback: ModelCallback) {
-
+        val blogApiInterface = retrofit.create<BlogApiInterface>()
         val apiCall = blogApiInterface.getBlogList()
 
         apiCall.enqueue(object : Callback<List<BlogResponse>> {
