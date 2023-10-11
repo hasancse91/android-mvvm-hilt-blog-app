@@ -3,16 +3,16 @@ package com.hellohasan.mvvmhiltblog.blog_list.view_model
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.hellohasan.mvvmhiltblog.blog_list.model.BlogItemUiModel
-import com.hellohasan.mvvmhiltblog.blog_list.model.BlogListModel
 import com.hellohasan.mvvmhiltblog.blog_list.model.ModelCallback
 import com.hellohasan.mvvmhiltblog.blog_list.model.data.BlogResponse
+import com.hellohasan.mvvmhiltblog.blog_list.model.repository.BlogRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import java.text.SimpleDateFormat
 import java.util.Locale
 import javax.inject.Inject
 
 @HiltViewModel
-class BlogListViewModel @Inject constructor(private val model: BlogListModel) : ViewModel() {
+class BlogListViewModel @Inject constructor(private val repository: BlogRepository) : ViewModel() {
 
     val showLoaderLiveData = MutableLiveData<Boolean>()
     val showErrorLiveData = MutableLiveData<String>()
@@ -23,7 +23,7 @@ class BlogListViewModel @Inject constructor(private val model: BlogListModel) : 
     fun getBlogList() {
         showLoaderLiveData.postValue(true)
 
-        model.getBlogList(object : ModelCallback {
+        repository.getBlogList(object : ModelCallback {
             override fun onSuccess(blogResponseList: List<BlogResponse>) {
                 val blogListUiModel = getBlogUiModelList(blogResponseList)
                 showLoaderLiveData.postValue(false)

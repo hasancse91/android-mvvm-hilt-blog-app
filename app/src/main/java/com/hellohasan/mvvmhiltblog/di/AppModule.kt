@@ -1,9 +1,6 @@
 package com.hellohasan.mvvmhiltblog.di
 
-import com.hellohasan.mvvmhiltblog.blog_list.model.BlogListModel
-import com.hellohasan.mvvmhiltblog.blog_list.model.BlogListModelImpl
 import com.hellohasan.mvvmhiltblog.network.RetrofitClient
-import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -21,6 +18,4 @@ interface AppModule {
         }
     }
 
-    @Binds
-    fun bindBlogModel(model: BlogListModelImpl): BlogListModel
 }
