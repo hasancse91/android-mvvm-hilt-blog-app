@@ -6,13 +6,14 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.hellohasan.mvvmblog.ManualDependencyProvider
 import com.hellohasan.mvvmblog.databinding.ActivityBlogListBinding
 import com.hellohasan.mvvmblog.feature.blog_list.view_model.BlogViewModel
 
 class BlogListActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityBlogListBinding
-    private val viewModel: BlogViewModel by viewModels { BlogViewModel.Factory }
+    private val viewModel: BlogViewModel by viewModels { ManualDependencyProvider.getBlogViewModelFactory() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

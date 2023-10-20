@@ -2,28 +2,13 @@ package com.hellohasan.mvvmblog.feature.blog_list.view_model
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import com.hellohasan.mvvmblog.feature.blog_list.model.BlogModel
-import com.hellohasan.mvvmblog.feature.blog_list.model.BlogModelImpl
 import com.hellohasan.mvvmblog.feature.blog_list.model.BlogResponse
 import com.hellohasan.mvvmblog.feature.blog_list.model.ModelCallback
-import com.hellohasan.mvvmblog.network.RetrofitClient
 import java.text.SimpleDateFormat
 import java.util.Locale
 
-class BlogViewModel(private val blogModel : BlogModel) : ViewModel() {
-
-    companion object {
-        val Factory: ViewModelProvider.Factory = object : ViewModelProvider.Factory {
-
-            override fun <T : ViewModel> create(modelClass: Class<T>): T {
-
-                val blogModel: BlogModel = BlogModelImpl(RetrofitClient.client)
-
-                return BlogViewModel(blogModel) as T
-            }
-        }
-    }
+class BlogViewModel(private val blogModel: BlogModel) : ViewModel() {
 
     val showLoader: MutableLiveData<Boolean> = MutableLiveData(false)
     val showError: MutableLiveData<String> = MutableLiveData("")
@@ -33,10 +18,10 @@ class BlogViewModel(private val blogModel : BlogModel) : ViewModel() {
 
         showLoader.postValue(true)
 
-        blogModel.fetchBlogList(object : ModelCallback{
+        blogModel.fetchBlogList(object : ModelCallback {
             override fun onSuccess(list: List<BlogResponse>) {
 
-                val blogListUiModel : List<BlogItemUiModel> = getBlogUiModelList(list)
+                val blogListUiModel: List<BlogItemUiModel> = getBlogUiModelList(list)
 
                 blogItemUiModelList.postValue(blogListUiModel)
                 showLoader.postValue(false)
@@ -50,7 +35,7 @@ class BlogViewModel(private val blogModel : BlogModel) : ViewModel() {
         })
     }
 
-    private fun getBlogUiModelList(blogResponseList: List<BlogResponse>) : List<BlogItemUiModel> {
+    private fun getBlogUiModelList(blogResponseList: List<BlogResponse>): List<BlogItemUiModel> {
         val blogUiModelList = mutableListOf<BlogItemUiModel>()
 
         blogResponseList.forEach {
@@ -69,7 +54,7 @@ class BlogViewModel(private val blogModel : BlogModel) : ViewModel() {
         return blogUiModelList
     }
 
-    private fun getFormattedDate(dateInput: String) : String {
+    private fun getFormattedDate(dateInput: String): String {
         val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault())
         val outputFormat = SimpleDateFormat("dd MMM yyyy, hh:mm a", Locale.getDefault())
 
