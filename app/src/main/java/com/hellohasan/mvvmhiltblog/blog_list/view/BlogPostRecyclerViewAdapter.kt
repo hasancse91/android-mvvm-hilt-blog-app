@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.hellohasan.mvvmhiltblog.blog_details.BlogDetailsActivity
-import com.hellohasan.mvvmhiltblog.blog_list.model.BlogItemUiModel
+import com.hellohasan.mvvmhiltblog.blog_list.view_model.BlogItemUiModel
 import com.hellohasan.mvvmhiltblog.databinding.ItemBlogPostBinding
 
 class BlogPostRecyclerViewAdapter(private val blogList: List<BlogItemUiModel>) :

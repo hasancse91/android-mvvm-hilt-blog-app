@@ -2,7 +2,6 @@ package com.hellohasan.mvvmhiltblog.blog_list.view_model
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.hellohasan.mvvmhiltblog.blog_list.model.BlogItemUiModel
 import com.hellohasan.mvvmhiltblog.blog_list.model.ModelCallback
 import com.hellohasan.mvvmhiltblog.blog_list.model.data.BlogResponse
 import com.hellohasan.mvvmhiltblog.blog_list.model.repository.BlogRepository
