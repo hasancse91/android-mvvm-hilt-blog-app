@@ -1,4 +1,4 @@
-package com.hellohasan.mvvmblog.feature.blog_list.view_model
+package com.hellohasan.mvvmhiltblog.feature.blog_list.view_model
 
 import java.io.Serializable
 

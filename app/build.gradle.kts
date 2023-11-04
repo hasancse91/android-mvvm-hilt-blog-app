@@ -1,14 +1,16 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    kotlin("kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
-    namespace = "com.hellohasan.mvvmblog"
+    namespace = "com.hellohasan.mvvmhiltblog"
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.hellohasan.mvvmblog"
+        applicationId = "com.hellohasan.mvvmhiltblog"
         minSdk = 24
         targetSdk = 33
         versionCode = 1
@@ -29,11 +31,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
     buildFeatures {
         viewBinding = true
@@ -64,6 +66,14 @@ dependencies {
     implementation("com.github.bumptech.glide:glide:4.16.0")
 
     // ViewModel & LiveData
-    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")
-    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion")
+
+    // Hilt
+    implementation("com.google.dagger:hilt-android:2.48")
+    kapt("com.google.dagger:hilt-android-compiler:2.48")
+}
+
+kapt {
+    correctErrorTypes = true
 }

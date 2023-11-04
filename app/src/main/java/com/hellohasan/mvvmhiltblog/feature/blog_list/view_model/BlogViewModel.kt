@@ -1,14 +1,17 @@
-package com.hellohasan.mvvmblog.feature.blog_list.view_model
+package com.hellohasan.mvvmhiltblog.feature.blog_list.view_model
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.hellohasan.mvvmblog.feature.blog_list.model.BlogModel
-import com.hellohasan.mvvmblog.feature.blog_list.model.BlogResponse
-import com.hellohasan.mvvmblog.feature.blog_list.model.ModelCallback
+import com.hellohasan.mvvmhiltblog.feature.blog_list.model.BlogModel
+import com.hellohasan.mvvmhiltblog.feature.blog_list.model.BlogResponse
+import com.hellohasan.mvvmhiltblog.feature.blog_list.model.ModelCallback
+import dagger.hilt.android.lifecycle.HiltViewModel
 import java.text.SimpleDateFormat
 import java.util.Locale
+import javax.inject.Inject
 
-class BlogViewModel(private val blogModel: BlogModel) : ViewModel() {
+@HiltViewModel
+class BlogViewModel @Inject constructor(private val blogModel: BlogModel) : ViewModel() {
 
     val showLoader: MutableLiveData<Boolean> = MutableLiveData(false)
     val showError: MutableLiveData<String> = MutableLiveData("")

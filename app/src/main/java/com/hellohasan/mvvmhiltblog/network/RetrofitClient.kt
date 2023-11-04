@@ -1,7 +1,7 @@
-package com.hellohasan.mvvmblog.network
+package com.hellohasan.mvvmhiltblog.network
 
 import com.google.gson.GsonBuilder
-import com.hellohasan.mvvmblog.BuildConfig
+import com.hellohasan.mvvmhiltblog.BuildConfig
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

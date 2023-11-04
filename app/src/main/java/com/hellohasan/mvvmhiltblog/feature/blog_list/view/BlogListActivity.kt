@@ -1,4 +1,4 @@
-package com.hellohasan.mvvmblog.feature.blog_list.view
+package com.hellohasan.mvvmhiltblog.feature.blog_list.view
 
 import android.os.Bundle
 import android.widget.Toast
@@ -6,14 +6,15 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.hellohasan.mvvmblog.ManualDependencyProvider
-import com.hellohasan.mvvmblog.databinding.ActivityBlogListBinding
-import com.hellohasan.mvvmblog.feature.blog_list.view_model.BlogViewModel
+import com.hellohasan.mvvmhiltblog.databinding.ActivityBlogListBinding
+import com.hellohasan.mvvmhiltblog.feature.blog_list.view_model.BlogViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class BlogListActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityBlogListBinding
-    private val viewModel: BlogViewModel by viewModels { ManualDependencyProvider.getBlogViewModelFactory() }
+    private val viewModel: BlogViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
