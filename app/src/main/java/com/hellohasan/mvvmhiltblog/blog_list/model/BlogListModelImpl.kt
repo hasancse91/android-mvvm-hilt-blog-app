@@ -21,12 +21,16 @@ class BlogListModelImpl @Inject constructor(private val retrofit: Retrofit) : Bl
                 call: Call<List<BlogResponse>>,
                 response: Response<List<BlogResponse>>
             ) {
-                val blogList = response.body()
+                if (response.isSuccessful && response.code() == 200) {
+                    val blogList: List<BlogResponse>? = response.body()
 
-                if (blogList?.isEmpty() == true) {
-                    callback.onError("Content not found")
+                    if (blogList.isNullOrEmpty()) {
+                        callback.onError("Content not found")
+                    } else {
+                        callback.onSuccess(blogList)
+                    }
                 } else {
-                    callback.onSuccess(blogList!!)
+                    callback.onError("Error code: ${response.code()}. ${response.message()}")
                 }
             }
 
