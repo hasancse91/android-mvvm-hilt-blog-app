@@ -1,11 +1,11 @@
 package com.hellohasan.mvvmhiltblog.feature.blog_list.view
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.hellohasan.mvvmhiltblog.R
 import com.hellohasan.mvvmhiltblog.databinding.ActivityBlogListBinding
 import com.hellohasan.mvvmhiltblog.feature.blog_list.view_model.BlogViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -29,12 +29,14 @@ class BlogListActivity : AppCompatActivity() {
 
         viewModel.showError.observe(this) { error ->
             if (error.isNotEmpty()) {
-                Toast.makeText(this, error, Toast.LENGTH_LONG).show()
+                binding.tvError.text = error
+                binding.tvError.isVisible = true
             }
         }
 
         viewModel.blogItemUiModelList.observe(this) { blogList ->
             if (blogList.isNotEmpty()) {
+                binding.tvError.isVisible = false
                 val layoutManager = LinearLayoutManager(this)
                 binding.recyclerView.layoutManager = layoutManager
 
@@ -42,6 +44,9 @@ class BlogListActivity : AppCompatActivity() {
                 binding.recyclerView.adapter = adapter
 
                 binding.progressBar.isVisible = false
+            } else {
+                binding.tvError.text = getString(R.string.empty_list_message)
+                binding.tvError.isVisible = true
             }
         }
     }
