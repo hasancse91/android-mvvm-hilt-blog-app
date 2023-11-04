@@ -5,9 +5,8 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.create
-import javax.inject.Inject
 
-class BlogModelImpl @Inject constructor(private val retrofit: Retrofit) : BlogModel {
+class BlogModelImpl(private val retrofit: Retrofit) : BlogModel {
 
     override fun fetchBlogList(callback: ModelCallback) {
         val blogApiInterface = retrofit.create<BlogApiInterface>()
@@ -18,12 +17,17 @@ class BlogModelImpl @Inject constructor(private val retrofit: Retrofit) : BlogMo
                 call: Call<List<BlogResponse>>,
                 response: Response<List<BlogResponse>>
             ) {
-                val blogList = response.body()
 
-                if (blogList?.isEmpty() == true) {
-                    callback.onError("Content not found")
+                if (response.isSuccessful && response.code() == 200) {
+                    val blogList: List<BlogResponse>? = response.body()
+
+                    if (blogList.isNullOrEmpty()) {
+                        callback.onError("Content not found")
+                    } else {
+                        callback.onSuccess(blogList)
+                    }
                 } else {
-                    callback.onSuccess(blogList!!)
+                    callback.onError("Error code: ${response.code()}. ${response.message()}")
                 }
             }
 
