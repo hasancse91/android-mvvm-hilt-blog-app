@@ -1,26 +1,41 @@
 package com.hellohasan.mvvmhiltblog.di
 
-import com.hellohasan.mvvmhiltblog.blog_list.model.BlogListModel
-import com.hellohasan.mvvmhiltblog.blog_list.model.BlogListModelImpl
-import com.hellohasan.mvvmhiltblog.network.RetrofitClient
-import dagger.Binds
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
+import com.hellohasan.mvvmhiltblog.BuildConfig
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import okhttp3.OkHttpClient
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-interface AppModule {
+object AppModule {
 
-    companion object {
-        @Provides
-        fun provideRetrofitClient(): Retrofit {
-            return RetrofitClient.client
-        }
+    @Provides
+    @Singleton
+    fun provideHttpClient(): OkHttpClient {
+        return OkHttpClient.Builder().build()
     }
 
-    @Binds
-    fun bindBlogModel(model: BlogListModelImpl): BlogListModel
+    @Provides
+    @Singleton
+    fun provideGson(): Gson {
+        return GsonBuilder().setLenient().create()
+    }
+
+    @Provides
+    @Singleton
+    fun provideRetrofitClient(okHttpClient: OkHttpClient, gson: Gson): Retrofit {
+
+        return Retrofit.Builder()
+            .baseUrl(BuildConfig.BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create(gson))
+            .client(okHttpClient)
+            .build()
+    }
 }
