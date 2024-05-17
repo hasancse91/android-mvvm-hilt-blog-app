@@ -25,6 +25,7 @@ This app showcases various features related to reading blogs, including:
 - [x] Viewing a list of blog posts
 - [x] Displaying blog post details
 - [x] Fetching blog posts from a remote server
+- [x] [Manually provide depdency without library](https://github.com/hasancse91/android-mvvm-hilt-blog-app/tree/manual-di-mvvm)
 - [x] Dependency Injection Hilt implementation (master branch)
 
 ## Getting Started
