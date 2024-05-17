@@ -25,7 +25,6 @@ This app showcases various features related to reading blogs, including:
 - [x] Viewing a list of blog posts
 - [x] Displaying blog post details
 - [x] Fetching blog posts from a remote server
-- [x] Naive implementation in [this branch](https://github.com/hasancse91/android-mvp-blog-app/tree/naive-approach)
 - [x] Dependency Injection Hilt implementation (master branch)
 
 ## Getting Started
